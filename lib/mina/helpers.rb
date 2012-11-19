@@ -129,6 +129,7 @@ module Mina
     def queue(code)
       commands
       commands(@to) << unindent(code)
+      commands
     end
 
     # ### queue!

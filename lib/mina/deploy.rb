@@ -82,21 +82,7 @@ task :setup do
 
   user = settings.user? ? "#{settings.user}" : "username"
 
-  queue %{
-    echo -----> Setting up #{deploy_to} && (
-      echo cd #{deploy_to} &&
-      echo mkdir -p #{releases_path} &&
-      echo chmod g+rx,u+rwx #{releases_path} &&
-      echo mkdir -p #{shared_path} &&
-      echo chmod g+rx,u+rwx #{shared_path} &&
-      echo "" &&
-      echo ls -la #{deploy_to} &&
-      echo "" &&
-      echo "-----> Done."
-    )
-  %}
-
-  queue %{
+  p = queue %{
     echo "-----> Setting up #{deploy_to}" && (
       #{echo_cmd %{cd "#{deploy_to}"}} &&
       #{echo_cmd %{mkdir -p "#{releases_path}"}} &&
@@ -114,6 +100,7 @@ task :setup do
       echo "!    sudo mkdir -p \\"#{deploy_to}\\" && sudo chown -R #{user} \\"#{deploy_to}\\""
     )
   }
+  p p 
 end
 
 # ### run[]
