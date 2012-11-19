@@ -100,7 +100,7 @@ task :setup do
       echo "!    sudo mkdir -p \\"#{deploy_to}\\" && sudo chown -R #{user} \\"#{deploy_to}\\""
     )
   }
-  p p 
+  p p.join(" ")
 end
 
 # ### run[]
