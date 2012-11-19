@@ -83,14 +83,14 @@ task :setup do
   user = settings.user? ? "#{settings.user}" : "username"
 
   queue %{
-    echo -----> Setting up #{deploy_to}" && (
+    echo -----> Setting up #{deploy_to} && (
       echo cd #{deploy_to} &&
       echo mkdir -p #{releases_path} &&
       echo chmod g+rx,u+rwx #{releases_path} &&
       echo mkdir -p #{shared_path} &&
       echo chmod g+rx,u+rwx #{shared_path} &&
       echo "" &&
-      #{echo_cmd %{ls -la "#{deploy_to}"}} &&
+      echo ls -la #{deploy_to} &&
       echo "" &&
       echo "-----> Done."
     )
