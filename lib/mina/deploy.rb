@@ -84,9 +84,6 @@ task :setup do
 
   queue %{
     echo "-----> Setting up #{deploy_to}" && (
-      #{echo_cmd %{mkdir -p "#{deploy_to}"}} &&
-      #{echo_cmd %{chown -R `whoami` "#{deploy_to}"}} &&
-      #{echo_cmd %{chmod g+rx,u+rwx "#{deploy_to}"}} &&
       #{echo_cmd %{cd "#{deploy_to}"}} &&
       #{echo_cmd %{mkdir -p "#{releases_path}"}} &&
       #{echo_cmd %{chmod g+rx,u+rwx "#{releases_path}"}} &&
